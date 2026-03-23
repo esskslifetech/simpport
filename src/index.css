@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-marquee: marquee 15s linear infinite;
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+}
+
+/* Custom Cursor Styles */
+* {
+  cursor: none !important;
+}
+
+body {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+              0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.custom-cursor::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  border-color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
+              0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+.custom-cursor.click {
+  width: 15px;
+  height: 15px;
+  border-color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cursor-trail {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
